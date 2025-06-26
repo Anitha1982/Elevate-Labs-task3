@@ -1,0 +1,38 @@
+-- Select * - Select all Columns
+SELECT * FROM employees;
+
+
+--Select Specific Columns
+SELECT Name,Salary FROM Employees;
+
+-- WHERE - Filter rows based on a condition
+SELECT * FROM Employees WHERE Position='CEO';
+
+-- AND - Combine Multiple Condition (all must be true)
+SELECT * FROM Employees WHERE Position='CEO' AND Salary>80000;
+
+-- OR - Combine Multiple Condition (atleast one must be true)
+SELECT * FROM Employees WHERE Position='CEO' OR Salary>80000;
+
+--LIKE — Search for patterns (used with wildcards)
+SELECT * FROM Employees WHERE Name LIKE 'J%'; --Returns employees whose names start with "J" 
+
+--BETWEEN — Check if a value is in a range (inclusive)
+SELECT * FROM Employees WHERE Salary BETWEEN 50000 AND 80000;
+
+-- Combining All
+SELECT Name, Salary, Position FROM Employees
+WHERE Position = 'CEO'
+  AND Salary BETWEEN 50000 AND 90000
+  AND Name LIKE 'J%'
+  OR Position = 'Human Resourse';
+
+-- Sort by one column (ascending by default)
+Select Name,Salary FROM Employees ORDER BY Salary;
+
+ --Sort by one column in descending order
+ Select Name,Salary FROM Employees ORDER BY Salary DESC;
+
+ -- Sort by multiple columns
+ SELECT Name, Position, Salary FROM Employees
+ORDER BY Position ASC, Salary DESC;
